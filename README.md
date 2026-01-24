@@ -2,9 +2,11 @@
 
 # 🤖 AirChatter
 
-**AI-powered chat assistant for OnlyFans creators**
+**AI-powered chat assistant for [Chatterly](https://usechatterly.com) users**
 
 Generate natural, human-like responses using Claude or ChatGPT
+
+> ⚠️ **Note:** This extension works exclusively with [Chatterly](https://usechatterly.com), a CRM platform for OnlyFans agencies. It does not work directly on OnlyFans.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Chrome Extension](https://img.shields.io/badge/Platform-Chrome-green.svg)](https://www.google.com/chrome/)
@@ -40,6 +42,12 @@ Generate natural, human-like responses using Claude or ChatGPT
 <img src="screenshots/buttons.png" alt="AI Buttons" width="600">
 <p><em>AI and AI+ buttons seamlessly integrated next to the Script button</em></p>
 </div>
+
+## 📋 Requirements
+
+- [Chatterly](https://usechatterly.com) account (CRM for OnlyFans agencies)
+- Google Chrome browser
+- API key from Claude or OpenAI
 
 ## 🚀 Installation
 
