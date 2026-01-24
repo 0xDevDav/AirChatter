@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chat Assistant - Settings</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0e17 0%, #1a1d24 100%);
+      min-height: 100vh;
+    }
+    .header-provider { border-bottom: 2px solid var(--bs-primary); }
+    .header-options { border-bottom: 2px solid var(--bs-info); }
+    .header-profiles { border-bottom: 2px solid var(--bs-purple); }
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 0%, var(--bs-info) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold mb-2 gradient-text">
+        <i class="bi bi-robot text-info"></i> AI Chat Assistant
+      </h1>
+      <p class="text-secondary mb-0">Configure extension settings</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left Column -->
+      <div class="col-md-6">
+
+        <div class="card mb-4">
+          <div class="card-header bg-transparent header-provider">
+            <h5 class="mb-0 text-primary"><i class="bi bi-gear-fill me-2"></i>AI Provider</h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="aiProvider" class="form-label">Select Provider</label>
+              <select id="aiProvider" class="form-select">
+                <option value="claude">Claude (Anthropic)</option>
+                <option value="openai">ChatGPT (OpenAI)</option>
+              </select>
+            </div>
+
+            <div id="claudeSettings">
+              <div class="mb-3">
+                <label for="apiKey" class="form-label">
+                  <i class="bi bi-key-fill text-warning me-1"></i>Claude API Key
+                </label>
+                <input type="password" class="form-control" id="apiKey" placeholder="sk-ant-api03-...">
+                <div class="form-text">
+                  Get your API key from <a href="https://console.anthropic.com/settings/keys" target="_blank" class="link-info">console.anthropic.com</a>
+                </div>
+              </div>
+              <div class="mb-0">
+                <label for="modelSelect" class="form-label">Claude Model</label>
+                <select id="modelSelect" class="form-select">
+                  <option value="claude-opus-4-20250514">Claude Opus 4 (smartest)</option>
+                  <option value="claude-sonnet-4-20250514">Claude Sonnet 4 (balanced)</option>
+                  <option value="claude-3-5-haiku-20241022">Claude 3.5 Haiku (fastest)</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="openaiSettings" class="d-none">
+              <div class="mb-3">
+                <label for="openaiApiKey" class="form-label">
+                  <i class="bi bi-key-fill text-warning me-1"></i>OpenAI API Key
+                </label>
+                <input type="password" class="form-control" id="openaiApiKey" placeholder="sk-...">
+                <div class="form-text">
+                  Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank" class="link-info">platform.openai.com</a>
+                </div>
+              </div>
+              <div class="mb-0">
+                <label for="openaiModel" class="form-label">ChatGPT Model</label>
+                <select id="openaiModel" class="form-select">
+                  <option value="gpt-4o">GPT-4o (smartest)</option>
+                  <option value="gpt-4o-mini">GPT-4o Mini (balanced)</option>
+                  <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header bg-transparent header-options">
+            <h5 class="mb-0 text-info"><i class="bi bi-sliders me-2"></i>Advanced Options</h5>
+          </div>
+          <div class="card-body">
+            <div class="form-check form-switch d-flex align-items-center gap-3 ps-0">
+              <input class="form-check-input m-0" type="checkbox" id="multipleResponses" role="switch">
+              <label class="form-check-label" for="multipleResponses">
+                <strong>Multiple Responses</strong><br>
+                <small class="text-secondary">Show 3 response options to choose from with Italian translation.</small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-md-6">
+
+        <div class="card mb-4">
+          <div class="card-header bg-transparent header-profiles">
+            <h5 class="mb-0" style="color: var(--bs-purple);"><i class="bi bi-person-badge me-2"></i>Model Profiles</h5>
+          </div>
+          <div class="card-body">
+            <p class="text-secondary small mb-4">
+              Add model information for personalized AI responses. The name must exactly match the one shown in the tab.
+            </p>
+
+            <div id="modelList" class="mb-4">
+              <div class="text-center py-4">
+                <i class="bi bi-inbox fs-1 d-block mb-2 text-secondary opacity-50"></i>
+                <span class="text-secondary small">No profiles configured</span>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2 mb-3">
+              <button id="addModelBtn" class="btn btn-outline-info flex-grow-1">
+                <i class="bi bi-plus-circle me-2"></i>Add Profile
+              </button>
+            </div>
+            <div class="d-flex gap-2">
+              <button id="exportBtn" class="btn btn-outline-success flex-grow-1">
+                <i class="bi bi-download me-2"></i>Export
+              </button>
+              <button id="importBtn" class="btn btn-outline-warning flex-grow-1">
+                <i class="bi bi-upload me-2"></i>Import
+              </button>
+              <input type="file" id="importFile" accept=".json" class="d-none">
+            </div>
+
+            <div id="addModelForm" class="mt-4 p-3 border rounded-3 d-none">
+              <div class="mb-3">
+                <label for="modelName" class="form-label">Model Name</label>
+                <input type="text" class="form-control" id="modelName" placeholder="e.g. Bella Bianca">
+                <div class="form-text">Must exactly match the name in the tab</div>
+              </div>
+              <div class="mb-3">
+                <label for="modelInfoRaw" class="form-label">Information</label>
+                <textarea class="form-control" id="modelInfoRaw" rows="5" placeholder="e.g. 25 years old, brunette, Italian, lives in Milan..."></textarea>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <button id="optimizeBtn" class="btn btn-outline-warning">
+                  <i class="bi bi-magic me-1"></i>Optimize with AI
+                </button>
+                <button id="saveModelBtn" class="btn btn-success">
+                  <i class="bi bi-check-lg me-1"></i>Save
+                </button>
+                <button id="cancelModelBtn" class="btn btn-outline-secondary">Cancel</button>
+              </div>
+              <div id="organizeStatus" class="alert mt-3 d-none"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Centered Save Button -->
+    <div class="row mt-4">
+      <div class="col-md-6 mx-auto">
+        <div class="d-grid mb-3">
+          <button id="saveBtn" class="btn btn-primary btn-lg">
+            <i class="bi bi-check-lg me-2"></i>Save Settings
+          </button>
+        </div>
+        <div id="status" class="alert d-none"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
