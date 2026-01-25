@@ -391,12 +391,12 @@ OUTPUT FORMAT (omit sections without info):
 📍 IDENTITY: name, age, nationality, location
 📸 PHYSICAL: height, body type, measurements, hair, eyes, tattoos, piercings
 💰 PRICE LIST:
-  - PPV photo: €XX
-  - PPV video: €XX
-  - Custom video: €XX/min
-  - Live sexting: €XX/min
-  - Videocall: €XX/min
-  - Dick rate: €XX
+  - PPV photo: $XX
+  - PPV video: $XX
+  - Custom video: $XX/min
+  - Sexchat: $30/15min (with content)
+  - Roleplay: $30/30min (no content)
+  - Dick rate: $XX
 🚫 LIMITS: what she does NOT do (meetups, face visible, etc.)
 ✅ AVAILABLE FOR: what she enjoys doing, kinks, fetishes
 💕 RELATIONSHIP: single/taken? hide from fans?
