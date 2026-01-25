@@ -8,6 +8,8 @@ Generate natural, human-like responses using Claude or ChatGPT
 
 > ⚠️ **Note:** This extension works exclusively with [Chatterly](https://usechatterly.com), a CRM platform for OnlyFans agencies. It does not work directly on OnlyFans.
 
+> 🚧 **Disclaimer:** This is **not a finished product** — it's a concept/tool designed to give chatters **ideas** on how to respond. It's meant to **assist**, not replace, the work of a real chatter. Use it as inspiration, always review and personalize the suggestions before sending.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Chrome Extension](https://img.shields.io/badge/Platform-Chrome-green.svg)](https://www.google.com/chrome/)
 [![Claude API](https://img.shields.io/badge/AI-Claude-orange.svg)](https://www.anthropic.com/)
@@ -133,6 +135,19 @@ AirChatter/
 - **UI:** Bootstrap 5.3 + Bootstrap Icons
 - **AI:** Anthropic Claude API / OpenAI API
 - **Storage:** Chrome Sync Storage
+
+## 🚀 Roadmap
+
+This project is a **work in progress**. Future improvements may include:
+
+- [ ] Direct support for OnlyFans.com (no CRM needed)
+- [ ] Support for other CRM platforms (Infloww, Supercreator, etc.)
+- [ ] Firefox extension
+- [ ] Better prompt tuning for more natural responses
+- [ ] Custom prompt templates
+- [ ] Response history/favorites
+
+**Contributions are welcome!** Feel free to fork, improve, and submit a PR.
 
 ## 📄 License
 
