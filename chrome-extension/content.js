@@ -485,11 +485,18 @@
 
     const chatData = extractChatMessages();
     if (chatData.type === 'error') {
-      showNotification('❌ ' + chatData.content, true);
+      showErrorModal('Chat Context Error', 'Could not read the chat context. Make sure a conversation is open and try again. No API credits were used.');
       return;
     }
     if (chatData.count === 0) {
-      showNotification('❌ No messages found', true);
+      showErrorModal('Chat Context Error', 'No messages found in the conversation. Make sure the chat is loaded and try again. No API credits were used.');
+      return;
+    }
+
+    // Check that at least one message has actual text content
+    const hasTextContent = chatData.content.some(msg => msg.text && msg.text.trim().length > 0);
+    if (!hasTextContent) {
+      showErrorModal('Chat Context Error', 'Messages were found but none contain readable text. The chat may not have loaded correctly. Try scrolling through the chat and clicking again. No API credits were used.');
       return;
     }
 
